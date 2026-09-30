@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Paleta: azul marino, azul eléctrico, blanco y grises */
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --line: #dde3ed;
+  --ink: #0f1d3a;
+  --muted: #5a667d;
+  --accent: #1d5bf0;
+  --accent-soft: #e6edfd;
+  --on-accent: #ffffff;
+  --warn: #b45309;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0a1224;
+  --surface: #111b33;
+  --line: #22304f;
+  --ink: #e7ecf6;
+  --muted: #95a1b8;
+  --accent: #5b8fff;
+  --accent-soft: #172a55;
+  --on-accent: #0a1224;
+  --warn: #fbbf24;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 58rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .chip {
+    display: inline-block;
+    border-radius: 6px;
+    background: var(--accent-soft);
+    color: var(--ink);
+    padding: 0.15rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid var(--line);
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+  }
+  .btn-primary:hover {
+    color: var(--on-accent);
+    background: color-mix(in srgb, var(--accent) 85%, #000);
+  }
+
+  .icon-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .icon-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.05rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .status-done {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  .status-progress {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+  }
+  .status-planned {
+    border: 1px dashed var(--muted);
+    color: var(--muted);
+  }
+
+  .list > li {
+    position: relative;
+    padding-left: 1rem;
+  }
+  .list > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 50;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* Aviso visible solo en local (npm run dev) */
+  .missing {
+    display: inline-block;
+    margin-top: 0.3rem;
+    border: 1px dashed var(--warn);
+    color: var(--warn);
+    border-radius: 4px;
+    padding: 0 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .fade-in {
+    animation: fade-in 0.5s ease both;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

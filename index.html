@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Jean Paul Marchant | Analista programador y soporte TI</title>
+    <meta name="description" content="Portafolio de Jean Paul Marchant: Técnico Analista Programador, soporte TI e infraestructura en un establecimiento educacional, estudiante de Ingeniería en Informática. Rancagua, Chile." />
+    <meta name="author" content="Jean Paul Marchant Lillo" />
+    <meta name="theme-color" content="#F5F7FB" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:title" content="Jean Paul Marchant | Analista programador y soporte TI" />
+    <meta property="og:description" content="Desarrollo de software, soporte TI, redes e infraestructura. Rancagua, Chile." />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/images/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <script>
+      // Aplica el tema antes de pintar para evitar parpadeo.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var d = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.classList.toggle("dark", d);
+        } catch (e) {
+          /* sin almacenamiento: modo claro */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Este sitio necesita JavaScript activado.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

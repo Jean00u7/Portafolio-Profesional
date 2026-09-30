@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Página no encontrada | Jean Paul Marchant</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var d = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.classList.toggle("dark", d);
+        } catch (e) {
+          /* sin almacenamiento: modo claro */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="wrap flex min-h-screen flex-col justify-center py-20">
+      <p class="text-7xl font-extrabold text-accent">404</p>
+      <h1 class="mt-4 text-2xl font-bold">Esta página no existe.</h1>
+      <p class="mt-3 max-w-[48ch] text-muted">El enlace puede estar mal escrito o la página se movió. Vuelve al inicio para ver el portafolio.</p>
+      <p class="mt-8"><a id="home-link" href="/" class="btn btn-primary">Volver al inicio</a></p>
+    </main>
+    <script type="module" src="/src/not-found.ts"></script>
+  </body>
+</html>
